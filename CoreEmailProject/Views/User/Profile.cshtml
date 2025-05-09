@@ -1,0 +1,73 @@
+﻿@model AppUser
+@{
+    ViewData["Title"] = "Profilim";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content-body">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-4 col-xl-3">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="media align-items-center mb-4">
+                            <img class="mr-3" src="@ViewBag.ProfilePicture" width="80" height="80" style="border-radius:50%" alt="Profile Image">
+                            <div class="media-body">
+                                <h3 class="mb-0">@ViewBag.Name @ViewBag.Surname</h3>
+                                <p class="text-muted mb-0">#@ViewBag.Username</p>
+                            </div>
+                        </div>
+                        <div class="row mb-5">
+                            <div class="col">
+                                <div class="card card-profile text-center">
+                                    <span class="mb-1 text-primary"><i class="icon-people"></i></span>
+                                    <h3 class="mb-0">@ViewBag.RecipientEmailAddressCount</h3>
+                                    <p class="text-muted px-4">Alınan Mesaj Sayısı</p>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card card-profile text-center">
+                                    <span class="mb-1 text-warning"><i class="icon-user-follow"></i></span>
+                                    <h3 class="mb-0">@ViewBag.SenderEmailAddressCount</h3>
+                                    <p class="text-muted">Gönderilen Mesaj Sayısı</p>
+                                </div>
+                            </div>
+                        </div>
+                        <h4>Bilgilerim</h4>
+                        <ul class="card-profile__info">
+                            <li><strong class="text-dark mr-4">Email:</strong> <span>@ViewBag.Email</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8 col-xl-9">
+                <div class="card">
+                    <h4 class="card-title">Profil Bilgilerini Güncelle</h4>
+                    <div class="card-body">
+                        <form method="post" action="/User/Edit">
+                            <div class="form-group">
+                                <input type="text" asp-for="ProfileImageUrl" class="form-control input-rounded" placeholder="Profil Resmi URL" />
+                            </div>
+                            <div class="form-group">
+                                <input type="text" asp-for="Name" class="form-control input-rounded" placeholder="Ad" />
+                            </div>
+                            <div class="form-group">
+                                <input type="text" asp-for="Surname" class="form-control input-rounded" placeholder="Soyad" />
+                            </div>
+                            <div class="form-group">
+                                <input type="text" asp-for="UserName" class="form-control input-rounded" placeholder="Kullanıcı Adı" />
+                            </div>
+                            <div class="form-group">
+                                <input type="email" asp-for="Email" class="form-control input-rounded" placeholder="E-posta" />
+                            </div>
+                            <div class="form-group">
+                                <input type="password" name="newPassword" class="form-control input-rounded" placeholder="Yeni Şifre" />
+                            </div>
+                            <button type="submit" class="btn btn-dark form-control input-rounded">Kaydet</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

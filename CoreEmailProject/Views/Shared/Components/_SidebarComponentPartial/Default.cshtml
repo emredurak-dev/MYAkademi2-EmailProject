@@ -1,0 +1,9 @@
+﻿<div class="email-left-box">
+	<a href="/Email/Compose/" class="btn btn-primary btn-block">Yeni Mesaj Oluştur</a>
+	<div class="mail-list mt-4">
+		<a href="/Email/Inbox/" class="list-group-item border-0 p-r-0"><i class="fa fa-inbox font-18 align-middle mr-2"></i>Birincil<span class="badge badge-primary badge-sm float-right m-t-5">@ViewBag.RecipientEmailAddressCount</span></a>
+		<a href="/Email/Sent/" class="list-group-item border-0 p-r-0"><i class="fa fa-inbox font-18 align-middle mr-2"></i>Gönderilenler<span class="badge badge-primary badge-sm float-right m-t-5">@ViewBag.SenderEmailAddressCount</span></a>
+		<a href="/Email/ReadList/" class="list-group-item border-0 p-r-0"><i class="fa fa-inbox font-18 align-middle mr-2"></i>Okunan Mesajlar<span class="badge badge-primary badge-sm float-right m-t-5">@ViewBag.ReadCount</span></a>
+		<a href="/Email/Trash/" class="list-group-item border-0 p-r-0"><i class="fa fa-trash font-18 align-middle mr-2"></i>Çöp Kutusu<span class="badge badge-primary badge-sm float-right m-t-5">@ViewBag.TrashCount</span></a>
+	</div>
+</div>

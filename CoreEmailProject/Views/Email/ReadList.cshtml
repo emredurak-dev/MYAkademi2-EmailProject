@@ -1,0 +1,46 @@
+﻿@model List<EmailMessage>
+@{
+    ViewData["Title"] = "ReadList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div style="margin-left: 0;" class="content-body">
+    <div class="email-right-box">
+        <h4>ReadIt. Okunan Mesajlar</h4>
+        <hr>
+        <form method="post" action="/Email/BulkAction">
+            <div role="toolbar" class="toolbar">
+                <div class="btn-group">
+                    <button aria-expanded="false" data-toggle="dropdown" class="btn btn-dark dropdown-toggle" type="button">
+                        Daha Fazla.  <span class="caret m-l-5"></span>
+                    </button>
+                    <div class="dropdown-menu">
+                        <input type="hidden" name="sourcePage" value="ReadList" />
+                        <button type="submit" name="actionType" value="unread" class="dropdown-item">Okunmadı olarak işaretle</button>
+                        <button type="submit" name="actionType" value="delete" class="dropdown-item">Sil</button>
+                    </div>
+                </div>
+            </div>
+            @foreach (var item in Model)
+            {
+                <div class="email-list m-t-15">
+                    <div class="message">
+                        <div class="col-mail col-mail-1">
+                            <div class="email-checkbox">
+                                <input type="checkbox" name="Id" value="@item.Id" id="chk_@item.Id" />
+                                <label class="toggle" for="chk_@item.Id"></label>
+                            </div>
+                        </div>
+                        <div class="col-mail col-mail-2">
+                            <div class="subject">
+                                <a href="/Email/Read/@item.Id">@item.SenderEmailAddress | @item.EmailSubject</a>
+                            </div>
+                            <div class="date">
+                                <a href="/Email/Read/@item.Id">@item.SentAt.ToString("dd-MMM-yyyy")</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </form>
+    </div>
+</div>

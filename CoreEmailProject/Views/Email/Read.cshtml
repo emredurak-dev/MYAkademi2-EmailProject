@@ -1,0 +1,29 @@
+﻿@model EmailMessage
+@{
+    ViewData["Title"] = "Read";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div style="margin-left: 0;" class="content-body"
+<div class="email-right-box">
+            <h4>ReadIt. Mesajlar</h4>
+              <hr>
+<div class="read-content">
+    <div class="media pt-5">
+        <div class="media-body">
+            <h5 class="m-b-3">@Model.SenderEmailAddress</h5>
+        </div>
+    </div>
+    <hr>
+    <div class="media mb-4 mt-1">
+        <div class="media-body">
+            <span class="float-right">@Model.SentAt.ToString("dd-MMM-yyyy")</span>
+            <h4 class="m-0 text-primary">@Model.EmailSubject</h4><small class="text-muted">Alıcılar: @Model.RecipientEmailAddress</small>
+        </div>
+    </div>
+    <p>
+       @Model.EmailBody
+    </p>
+    <hr>
+</div>
+</div>
+</div>
